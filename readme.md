@@ -15,7 +15,7 @@ This application is developed with a `social cause` in mind, aiming to provide a
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/warrior-pose-webapp.git`
+1. Clone the repository: `git clone https://github.com/amBITion-24/noob_buggies.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
 3. Run the app: `python detection.py`
 
