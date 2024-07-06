@@ -5,6 +5,34 @@ import numpy as np
 mp_drawing=mp.solutions.drawing_utils
 mp_pose=mp.solutions.pose
 
+import numpy as np
+
+def calculate_angle(a, b, c=0):
+    """
+    Calculates the angle between two points, a and b, in degrees.
+
+    Parameters:
+    a (array-like): The coordinates of point a.
+    b (array-like): The coordinates of point b.
+    c (array-like, optional): The coordinates of point c. Defaults to [0, 0].
+
+    Returns:
+    float: The angle between points a and b in degrees.
+    """
+    a = np.array(a)
+    b = np.array(b)
+    c = np.array(c)
+
+    radians = np.arctan2(a[1] - b[1], a[0] - b[0])
+    angle = np.abs(radians * 180.0 / np.pi)
+
+    return angle
+
+# Inline documentation for the project
+"""
+This project is focused on fitness detection. The `detection.py` module contains functions for calculating angles between points.
+The `calculate_angle` function calculates the angle between two points, a and b, in degrees. It takes in the coordinates of the points as input and returns the angle.
+"""
 def calculate_angle(a,b,c=0):
     a=np.array(a)
     b=np.array(b)
