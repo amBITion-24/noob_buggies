@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warrior Pose</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <!-- Replace 'icon.png' with your actual icon file path -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #abe714;
+            /* Replace 'background.jpg' with your background image file path */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+            text-align: bottom;
+        }
+
+        #icon {
+            width: 300px;
+            /* Adjust icon size as needed */
+            margin: 20px auto;
+            display: block;
+        }
+
+        #counter {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions {
+            margin-top: 40px;
+            text-align: left;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white background for instructions */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #one {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    </style>
+    <script>
+        function updateCounter() {
+            fetch('/get_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('counter').innerText = 'Curls: ' + data.count;
+                });
+        }
+
+        setInterval(updateCounter, 1000); // Update every second
+    </script>
+</head>
+
+<body id="one">
+    <img id="imageNA" src="{{ url_for('static', filename='warrior.jpg') }}" alt="Warrior Pose">
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    <h1>Warrior Pose</h1>
+</body>
+
+</html>
